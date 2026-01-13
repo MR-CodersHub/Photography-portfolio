@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Lumina Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="../src/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-zinc-950 text-white flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 bg-zinc-900 rounded-2xl border border-zinc-800 shadow-2xl">
+        <div class="text-center mb-10">
+            <a href="index.html" class="inline-flex flex-col items-center group">
+                <i data-lucide="camera"
+                    class="w-12 h-12 text-amber-500 mb-2 transition-transform group-hover:scale-110"></i>
+                <h1 class="text-2xl font-black uppercase tracking-tighter text-white">Lumina Studio</h1>
+            </a>
+            <p class="text-zinc-400 mt-4">Administrative access port</p>
+        </div>
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email
+                    Address</label>
+                <input type="email" id="email"
+                    class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                    placeholder="admin@lumina.studio" required>
+            </div>
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Secret Key</label>
+                <input type="password" id="password"
+                    class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                    placeholder="••••••••" required>
+            </div>
+            <button type="submit"
+                class="w-full bg-amber-500 text-zinc-950 font-bold py-4 rounded-lg uppercase tracking-widest hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/10">Authorize
+                Access</button>
+            <div class="text-center mt-6">
+                <a href="index.html"
+                    class="text-sm text-zinc-500 hover:text-white transition-colors flex items-center justify-center space-x-2">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Return to Home</span>
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // lucide icons handled in main.js
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('backend/auth.php?action=login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    // Redirect based on user role if needed, or just home
+                    window.location.href = 'index.html';
+                } else {
+                    alert(result.error);
+                }
+            } catch (err) {
+                alert('Login failed');
+            }
+        });
+    </script>
+</body>
+
+</html>
