@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Session | Lumina Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-md py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                    <span class="text-xl font-bold tracking-tighter text-white uppercase">Lumina Studio</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html#about"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="services.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="services.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="gallery.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Gallery</a>
+                <a href="index.html#portfolio"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="blog.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Contact</a>
+
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="text-gray-300 hover:text-amber-500 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block" id="moonIcon"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden" id="sunIcon"></i>
+                </button>
+
+                <!-- Profile Icon -->
+                <div class="relative group z-50">
+                    <button id="profileBtn" class="text-white hover:text-amber-500 transition-colors py-2">
+                        <i data-lucide="user" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Premium Dropdown -->
+                    <div
+                        class="absolute right-0 mt-4 w-64 bg-zinc-950/90 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right translate-y-2 group-hover:translate-y-0">
+
+                        <!-- Arrow -->
+                        <div
+                            class="absolute -top-2 right-1 w-4 h-4 bg-zinc-950/90 border-t border-l border-zinc-800 transform rotate-45">
+                        </div>
+
+                        <div class="relative p-2 space-y-1">
+                            <div class="px-4 py-3 border-b border-zinc-800 mb-2">
+                                <p class="text-xs font-bold text-zinc-500 uppercase tracking-widest">Account</p>
+                            </div>
+
+                            <a href="signin.html"
+                                class="flex items-center space-x-3 px-4 py-3 text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white rounded-xl transition-all group/item">
+                                <div
+                                    class="p-1.5 bg-zinc-900 rounded-lg border border-zinc-800 group-hover/item:border-amber-500/50 transition-colors">
+                                    <i data-lucide="log-in" class="w-4 h-4 text-amber-500"></i>
+                                </div>
+                                <span class="font-medium">Login</span>
+                            </a>
+
+                            <a href="signup.html"
+                                class="flex items-center space-x-3 px-4 py-3 text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white rounded-xl transition-all group/item">
+                                <div
+                                    class="p-1.5 bg-zinc-900 rounded-lg border border-zinc-800 group-hover/item:border-amber-500/50 transition-colors">
+                                    <i data-lucide="user-plus"
+                                        class="w-4 h-4 text-zinc-400 group-hover/item:text-amber-500 transition-colors"></i>
+                                </div>
+                                <span class="font-medium">Sign Up</span>
+                            </a>
+
+                            <!-- Admin/User Links (Hidden by default, can be toggled via JS) -->
+                            <div id="auth-links" class="hidden border-t border-zinc-800 mt-2 pt-2">
+                                <a href="user/dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white rounded-xl transition-all">
+                                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                                    <span>My Dashboard</span>
+                                </a>
+                                <button onclick="logout()"
+                                    class="w-full flex items-center space-x-3 px-4 py-3 text-sm text-red-400 hover:bg-red-500/10 rounded-xl transition-all text-left">
+                                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                                    <span>Sign Out</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="booking.html" class="nav-link text-sm tracking-widest uppercase text-amber-500">Book Now</a>
+            </div>
+            <button class="md:hidden text-white"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-zinc-950 border-t border-zinc-800 py-8 px-6 flex flex-col space-y-6 text-left">
+            <a href="index.html" class="text-lg text-white font-light">Home</a>
+            <a href="index.html#about" class="text-lg text-white font-light">About</a>
+            <a href="services.html" class="text-lg text-white font-light">Services</a>
+            <a href="gallery.html" class="text-lg text-white font-light">Gallery</a>
+            <a href="index.html#portfolio" class="text-lg text-white font-light">Portfolio</a>
+            <a href="blog.html" class="text-lg text-white font-light">Blog</a>
+            <a href="contact.html" class="text-lg text-white font-light">Contact</a>
+            <a href="booking.html" class="text-lg text-amber-500 font-bold">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-6 min-h-screen flex items-center justify-center">
+        <div class="max-w-5xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+            <!-- Left Column: Context -->
+            <div class="flex flex-col justify-center">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.2em] text-sm mb-4">Start Your Journey</h4>
+                <h1 class="text-5xl md:text-6xl font-black uppercase tracking-tighter leading-tight mb-8">Let's Create
+                    <br>Something <span class="italic text-zinc-500">Timeless</span>.
+                </h1>
+                <p class="text-zinc-300 text-lg leading-relaxed mb-12">
+                    We only take a limited number of commissions each year to ensure every client receives our full
+                    creative energy. Fill out the form, and we'll get back to you within 24 hours.
+                </p>
+
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-amber-500 border border-zinc-800">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-zinc-500">Email Us</span>
+                            <span class="font-bold">booking@luminastudio.com</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-zinc-900 flex items-center justify-center text-amber-500 border border-zinc-800">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs uppercase tracking-widest text-zinc-500">Call Us</span>
+                            <span class="font-bold">+1 (555) 987-6543</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Form -->
+            <div class="bg-zinc-900 rounded-3xl p-8 md:p-12 border border-zinc-800 shadow-2xl relative overflow-hidden">
+                <!-- Decorative Glow -->
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none">
+                </div>
+
+                <form class="space-y-6 relative z-10" id="bookingForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">First
+                                Name</label>
+                            <input type="text"
+                                class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                                placeholder="Jane">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Last
+                                Name</label>
+                            <input type="text"
+                                class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                                placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email
+                            Address</label>
+                        <input type="email"
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                            placeholder="jane@example.com">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Phone
+                            Number</label>
+                        <input type="tel"
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                            placeholder="+1 (555) 000-0000">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Service
+                                Interest</label>
+                            <select
+                                class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors appearance-none">
+                                <option>Wedding Photography</option>
+                                <option>Engagement Session</option>
+                                <option>Portrait Session</option>
+                                <option>Commercial / Brand</option>
+                                <option>Event Coverage</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Preferred
+                                Date</label>
+                            <input type="date" id="bookingDate"
+                                class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors [color-scheme:dark]">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Tell us
+                            about your vision</label>
+                        <textarea rows="4"
+                            class="w-full bg-zinc-950 border border-zinc-800 rounded-xl p-4 text-white focus:outline-none focus:border-amber-500 transition-colors"
+                            placeholder="Venue details, estimated guest count, specific ideas..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-amber-500 text-zinc-950 font-bold py-5 rounded-xl uppercase tracking-widest hover:bg-amber-400 transition-all shadow-lg hover:shadow-amber-500/20">Send
+                        Inquiry</button>
+
+                    <p class="text-center text-xs text-zinc-600 mt-4">By submitting, you agree to our privacy policy.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <script type="module" src="js/booking.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+</body>
+
+</html>

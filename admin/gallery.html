@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Admin Panel</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: #1e1e1e;
+            padding: 20px;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #888;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #333;
+            color: #fff;
+        }
+
+        input,
+        select {
+            background: #222;
+            border: 1px solid #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #aaa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="brand" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 40px; color: #fff;">
+            <i class="fas fa-camera" style="margin-right: 8px; color: #f59e0b;"></i>Lumina Studio
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html" id="nav-dashboard"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li><a href="users.html" id="nav-users"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="bookings.html" id="nav-bookings"><i class="fas fa-calendar-alt"></i> Bookings</a></li>
+            <li><a href="messages.html" id="nav-messages"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="blogs.html" id="nav-blogs"><i class="fas fa-blog"></i> Blogs</a></li>
+            <li><a href="gallery.html" id="nav-gallery" class="active"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="#" onclick="logout()" style="margin-top: 20px; color: #888;"><i
+                        class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div class="page-title" id="page-title" style="font-size: 1.5rem; font-weight: bold;">Gallery Management
+            </div>
+            <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-user-circle" style="font-size: 1.2rem; color: #f59e0b;"></i>
+                <span id="user-name">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Upload Form -->
+        <div class="glass" style="padding: 20px; margin-bottom: 30px;">
+            <h3 style="margin-bottom: 20px; font-size: 1.2rem; border-bottom: 1px solid #333; padding-bottom: 10px;">
+                Upload New Image</h3>
+            <form id="uploadForm">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 20px; align-items: end;">
+                    <div>
+                        <label>Title</label>
+                        <input type="text" name="title" required placeholder="Image Title">
+                    </div>
+                    <div>
+                        <label>Category</label>
+                        <select name="category">
+                            <option value="Wedding">Wedding</option>
+                            <option value="Portrait">Portrait</option>
+                            <option value="Commercial">Commercial</option>
+                            <option value="Landscape">Landscape</option>
+                            <option value="Event">Event</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Image</label>
+                        <input type="file" name="image" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="background: #f59e0b; color: #000; padding: 10px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; border: none; height: 42px; margin-bottom: 15px;">Upload</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="glass" style="padding: 20px;">
+            <h3 style="margin-bottom: 20px;">Current Gallery</h3>
+            <div id="gallery-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <!-- Images loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/admin-gallery.js"></script>
+</body>
+
+</html>

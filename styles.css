@@ -1,0 +1,311 @@
+:root {
+    --bg-primary-rgb: 9, 9, 11;
+    --bg-primary: rgb(var(--bg-primary-rgb));
+    /* zinc-950 */
+    --bg-secondary-rgb: 24, 24, 27;
+    --bg-secondary: rgb(var(--bg-secondary-rgb));
+    /* zinc-900 */
+    --bg-tertiary-rgb: 39, 39, 42;
+    --bg-tertiary: rgb(var(--bg-tertiary-rgb));
+    /* zinc-800 */
+
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    /* zinc-400 */
+    --text-muted: #d4d4d8;
+    /* zinc-300 */
+    --text-dim: #71717a;
+    /* zinc-500 */
+    --accent: #f59e0b;
+    /* amber-500 */
+    --border-color: #27272a;
+    /* zinc-800 */
+}
+
+/* Light Theme Variables */
+.light-theme {
+    --bg-primary-rgb: 255, 255, 255;
+    --bg-primary: rgb(var(--bg-primary-rgb));
+    --bg-secondary-rgb: 244, 244, 245;
+    --bg-secondary: rgb(var(--bg-secondary-rgb));
+    /* zinc-100 */
+    --bg-tertiary-rgb: 228, 228, 231;
+    --bg-tertiary: rgb(var(--bg-tertiary-rgb));
+    /* zinc-200 */
+
+    --text-primary: #09090b;
+    /* zinc-950 */
+    --text-secondary: #52525b;
+    /* zinc-600 */
+    --text-muted: #3f3f46;
+    /* zinc-700 */
+    --text-dim: #a1a1aa;
+    /* zinc-400 */
+    --accent: #f59e0b;
+    /* amber-500 */
+    --border-color: #e4e4e7;
+    /* zinc-200 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tailwind Overrides */
+.bg-zinc-950 {
+    background-color: var(--bg-primary) !important;
+}
+
+.bg-zinc-950\/90 {
+    background-color: rgba(var(--bg-primary-rgb), 0.9) !important;
+}
+
+.bg-zinc-950\/50 {
+    background-color: rgba(var(--bg-primary-rgb), 0.5) !important;
+}
+
+.bg-zinc-900 {
+    background-color: var(--bg-secondary) !important;
+}
+
+.bg-zinc-900\/50 {
+    background-color: rgba(var(--bg-secondary-rgb), 0.5) !important;
+}
+
+.bg-zinc-800 {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.text-white {
+    color: var(--text-primary) !important;
+}
+
+.text-zinc-300,
+.text-gray-300 {
+    color: var(--text-muted) !important;
+}
+
+.text-zinc-400,
+.text-gray-400 {
+    color: var(--text-secondary) !important;
+}
+
+.text-zinc-500,
+.text-gray-500 {
+    color: var(--text-dim) !important;
+}
+
+.border-zinc-800 {
+    border-color: var(--border-color) !important;
+}
+
+section {
+    padding-top: 8rem;
+    /* py-32 equivalent */
+    padding-bottom: 8rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}
+
+/* Consistent White + Orange Section Headings */
+.section-heading-white {
+    color: var(--text-primary);
+}
+
+.section-heading-orange {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Custom Select styling for Booking Page (Point 13) */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.25rem;
+}
+
+.light-theme select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23b45309' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* Portfolio Content Symmetry (Point 6) */
+.portfolio-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+@keyframes pulse-slow {
+
+    0%,
+    100% {
+        transform: scale(1.05);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slow-zoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 20s infinite ease-in-out;
+}
+
+.animate-slow-zoom {
+    animation: slow-zoom 30s infinite alternate linear;
+}
+
+.page-transition {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden-page {
+    display: none !important;
+    opacity: 0;
+}
+
+.masonry {
+    column-count: 1;
+    column-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+/* Custom Switch Button Hover Animation */
+.switch-btn {
+    width: 48px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch-btn:hover {
+    width: 140px;
+}
+
+.switch-text {
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+}
+
+.switch-btn:hover .switch-text {
+    opacity: 1;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+    background: rgba(24, 24, 27, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light-theme .glass {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Premium Hover Effects */
+.portfolio-item-hover {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-item-hover:hover {
+    transform: scale(1.02);
+}
+
+.img-zoom-hover img {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-hover:hover img {
+    transform: scale(1.08);
+}
+
+/* Grainy Overlay Effect */
+.grainy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Perspective Tilt (Simple CSS way) */
+.tilt-card {
+    transition: transform 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+}

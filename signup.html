@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Lumina Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .signin-bg {
+            background: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.7)), url('assets/img/hero/main-hero.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .auth-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-premium {
+            background: rgba(9, 9, 11, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .input-premium:focus {
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.1);
+            background: rgba(9, 9, 11, 0.6);
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-white min-h-screen flex flex-col font-['Inter']">
+
+    <!-- Grainy Overlay -->
+    <div class="grainy-overlay"></div>
+
+    <!-- Navigation Header -->
+    <header class="p-6 md:p-10 relative z-10 flex justify-between items-center w-full">
+        <a href="index.html" class="flex items-center space-x-3 group shrink-0">
+            <div
+                class="p-2 bg-zinc-900 rounded-lg border border-zinc-800 group-hover:border-amber-500 transition-colors">
+                <i data-lucide="camera" class="w-6 h-6 text-amber-500"></i>
+            </div>
+            <span class="text-xl font-black uppercase tracking-tighter">Lumina Studio</span>
+        </a>
+        <a href="index.html"
+            class="text-zinc-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest flex items-center space-x-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">Back to Home</span>
+        </a>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-6 relative overflow-hidden signin-bg">
+        <!-- Abstract Decorations -->
+        <div class="absolute top-1/4 -left-20 w-64 h-64 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-1/4 -right-20 w-64 h-64 bg-zinc-500/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="w-full max-w-[480px] reveal active">
+            <div class="auth-card p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
+
+                <!-- Card Inner Header -->
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-3">Sign Up</h2>
+                    <p class="text-zinc-400 text-sm">Join our community of visual storytellers.</p>
+                </div>
+
+                <!-- Sign Up Form -->
+                <form id="signUpForm" class="space-y-6">
+
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 ml-1">Full
+                            Name</label>
+                        <div class="relative">
+                            <i data-lucide="user"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-600"></i>
+                            <input type="text" id="name" required
+                                class="w-full input-premium rounded-2xl py-4 pl-12 pr-4 text-white placeholder-zinc-700 outline-none"
+                                placeholder="Sakthi">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 ml-1">Email
+                            Address</label>
+                        <div class="relative">
+                            <i data-lucide="mail"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-600"></i>
+                            <input type="email" id="email" required
+                                class="w-full input-premium rounded-2xl py-4 pl-12 pr-4 text-white placeholder-zinc-700 outline-none"
+                                placeholder="name@example.com">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center px-1">
+                            <label
+                                class="block text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Password</label>
+                        </div>
+                        <div class="relative">
+                            <i data-lucide="lock"
+                                class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-600"></i>
+                            <input type="password" id="password" required
+                                class="w-full input-premium rounded-2xl py-4 pl-12 pr-12 text-white placeholder-zinc-700 outline-none"
+                                placeholder="••••••••">
+                            <button type="button" id="togglePassword"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600 hover:text-zinc-400">
+                                <i data-lucide="eye" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Error Message Container -->
+                    <div id="errorMessage"
+                        class="hidden text-red-500 text-xs text-center font-bold tracking-wide bg-red-500/10 py-2 rounded-lg border border-red-500/20">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-amber-500 text-zinc-950 font-black py-5 rounded-2xl uppercase tracking-[0.2em] text-xs hover:bg-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-amber-500/10">
+                        Create Account
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="relative py-4">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-zinc-800/50"></div>
+                        </div>
+                        <div class="relative flex justify-center text-[10px] font-black uppercase tracking-[0.2em]">
+                            <span class="bg-zinc-900/0 px-4 text-zinc-600">Or continue with</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Logins -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button type="button"
+                            class="social-btn flex items-center justify-center space-x-3 py-4 rounded-2xl">
+                            <i data-lucide="chrome" class="w-4 h-4 text-zinc-400"></i>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-zinc-400">Google</span>
+                        </button>
+                        <button type="button"
+                            class="social-btn flex items-center justify-center space-x-3 py-4 rounded-2xl">
+                            <i data-lucide="apple" class="w-4 h-4 text-zinc-400"></i>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-zinc-400">Apple</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Footer -->
+                <div class="mt-10 text-center">
+                    <p class="text-zinc-500 text-sm">
+                        Already have an account?
+                        <a href="signin.html"
+                            class="text-white font-bold hover:text-amber-500 transition-colors">Login</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Additional Links -->
+            <div
+                class="mt-8 flex justify-center space-x-8 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">
+                <a href="#" class="hover:text-amber-500 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Help Center</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-10 text-center relative z-10">
+        <p class="text-zinc-600 text-[10px] uppercase tracking-[0.3em]">&copy; 2026 Lumina Studio. Crafted for
+            Creatives.</p>
+    </footer>
+
+    <script type="module" src="js/auth-signup.js"></script>
+</body>
+
+</html>

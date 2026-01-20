@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Lumina Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-md py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                    <span class="text-xl font-bold tracking-tighter text-white uppercase">Lumina Studio</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#about"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="services.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="gallery.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Gallery</a>
+                <a href="index.html#portfolio"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="blog.html" class="nav-link text-sm tracking-widest uppercase text-amber-500">Blog</a>
+                <a href="contact.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Contact</a>
+
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="text-gray-300 hover:text-amber-500 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block" id="moonIcon"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden" id="sunIcon"></i>
+                </button>
+
+                <!-- Profile Icon -->
+                <div class="relative group z-50">
+                    <button id="profileBtn" class="text-white hover:text-amber-500 transition-colors py-2">
+                        <i data-lucide="user" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Premium Dropdown -->
+                    <div
+                        class="absolute right-0 mt-4 w-64 bg-zinc-950/90 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right translate-y-2 group-hover:translate-y-0">
+
+                        <!-- Arrow -->
+                        <div
+                            class="absolute -top-2 right-1 w-4 h-4 bg-zinc-950/90 border-t border-l border-zinc-800 transform rotate-45">
+                        </div>
+
+                        <div class="relative p-2 space-y-1">
+                            <div class="px-4 py-3 border-b border-zinc-800 mb-2">
+                                <p class="text-xs font-bold text-zinc-500 uppercase tracking-widest">Account</p>
+                            </div>
+
+                            <a href="signin.html"
+                                class="flex items-center space-x-3 px-4 py-3 text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white rounded-xl transition-all group/item">
+                                <div
+                                    class="p-1.5 bg-zinc-900 rounded-lg border border-zinc-800 group-hover/item:border-amber-500/50 transition-colors">
+                                    <i data-lucide="log-in" class="w-4 h-4 text-amber-500"></i>
+                                </div>
+                                <span class="font-medium">Login</span>
+                            </a>
+
+                            <a href="signup.html"
+                                class="flex items-center space-x-3 px-4 py-3 text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white rounded-xl transition-all group/item">
+                                <div
+                                    class="p-1.5 bg-zinc-900 rounded-lg border border-zinc-800 group-hover/item:border-amber-500/50 transition-colors">
+                                    <i data-lucide="user-plus"
+                                        class="w-4 h-4 text-zinc-400 group-hover/item:text-amber-500 transition-colors"></i>
+                                </div>
+                                <span class="font-medium">Sign Up</span>
+                            </a>
+
+                            <!-- Admin/User Links (Hidden by default, can be toggled via JS) -->
+                            <div id="auth-links" class="hidden border-t border-zinc-800 mt-2 pt-2">
+                                <a href="user/dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3 text-sm text-zinc-300 hover:bg-zinc-800/50 hover:text-white rounded-xl transition-all">
+                                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                                    <span>My Dashboard</span>
+                                </a>
+                                <button onclick="logout()"
+                                    class="w-full flex items-center space-x-3 px-4 py-3 text-sm text-red-400 hover:bg-red-500/10 rounded-xl transition-all text-left">
+                                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                                    <span>Sign Out</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="window.location.href='booking.html'"
+                    class="bg-amber-500 text-zinc-950 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-amber-400 transition-all">Book
+                    Now</button>
+            </div>
+
+            <button class="md:hidden text-white"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-zinc-950 border-t border-zinc-800 py-8 px-6 flex flex-col space-y-6">
+            <a href="index.html" class="text-lg text-white font-light text-left">Home</a>
+            <a href="index.html#about" class="text-lg text-white font-light text-left">About</a>
+            <a href="services.html" class="text-lg text-white font-light text-left">Services</a>
+            <a href="gallery.html" class="text-lg text-white font-light text-left">Gallery</a>
+            <a href="index.html#portfolio" class="text-lg text-white font-light text-left">Portfolio</a>
+            <a href="blog.html" class="text-lg text-amber-500 font-bold text-left">Blog</a>
+            <a href="contact.html" class="text-lg text-white font-light text-left">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-32 pb-20 px-6 text-center bg-zinc-900 border-b border-zinc-800">
+        <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">Insights & <span
+                class="text-amber-500 italic">Stories</span></h1>
+        <div class="max-w-xl mx-auto relative mb-8">
+            <input type="text" placeholder="Search articles..."
+                class="w-full bg-zinc-950 border border-zinc-700 rounded-full py-3 px-6 text-white focus:outline-none focus:border-amber-500 transition-all">
+            <button class="absolute right-2 top-2 p-1 text-zinc-400 hover:text-amber-500"><i
+                    data-lucide="search"></i></button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button
+                class="px-4 py-1 rounded-full border border-amber-500 bg-amber-500 text-black font-bold text-sm uppercase">All</button>
+            <button
+                class="px-4 py-1 rounded-full border border-zinc-700 hover:border-amber-500 transition-colors text-sm uppercase text-zinc-400 hover:text-white">Tips</button>
+            <button
+                class="px-4 py-1 rounded-full border border-zinc-700 hover:border-amber-500 transition-colors text-sm uppercase text-zinc-400 hover:text-white">Behind
+                Scenes</button>
+            <button
+                class="px-4 py-1 rounded-full border border-zinc-700 hover:border-amber-500 transition-colors text-sm uppercase text-zinc-400 hover:text-white">Weddings</button>
+        </div>
+    </header>
+
+    <!-- Blog Grid -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="blog-posts-container">
+
+            <!-- Featured Post 1 -->
+            <article class="group">
+                <a href="blog-details.html" class="block overflow-hidden rounded-2xl aspect-[16/10] mb-6">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Golden Hour">
+                </a>
+                <div class="flex items-center space-x-4 mb-4 text-xs font-mono uppercase text-zinc-500">
+                    <span class="text-amber-500 font-bold">Photography</span>
+                    <span>•</span>
+                    <span>Dec 24, 2025</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-500 transition-colors">Mastering the Golden
+                    Hour</h3>
+                <p class="text-zinc-400 leading-relaxed mb-4">Discover how to leverage the soft, warm light of twilight
+                    to create breathtaking portraits and landscapes. We dive into the science of golden hour and the
+                    best settings for your camera.</p>
+                <a href="blog-details.html"
+                    class="inline-flex items-center text-sm font-bold uppercase tracking-widest hover:pl-2 transition-all">Read
+                    More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </article>
+
+            <!-- Featured Post 2 -->
+            <article class="group">
+                <a href="blog-details.html" class="block overflow-hidden rounded-2xl aspect-[16/10] mb-6">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Gear">
+                </a>
+                <div class="flex items-center space-x-4 mb-4 text-xs font-mono uppercase text-zinc-500">
+                    <span class="text-amber-500 font-bold">Gear</span>
+                    <span>•</span>
+                    <span>Dec 20, 2025</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-500 transition-colors">Mirrorless Gear for
+                    2026</h3>
+                <p class="text-zinc-400 leading-relaxed mb-4">A deep dive into the must-have cameras and lenses that are
+                    redefining professional photography this year. From high-resolution sensors to lighting-fast
+                    autofocus.</p>
+                <a href="blog-details.html"
+                    class="inline-flex items-center text-sm font-bold uppercase tracking-widest hover:pl-2 transition-all">Read
+                    More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </article>
+
+            <!-- Featured Post 3 -->
+            <article class="group">
+                <a href="blog-details.html" class="block overflow-hidden rounded-2xl aspect-[16/10] mb-6">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Composition">
+                </a>
+                <div class="flex items-center space-x-4 mb-4 text-xs font-mono uppercase text-zinc-500">
+                    <span class="text-amber-500 font-bold">Technique</span>
+                    <span>•</span>
+                    <span>Dec 15, 2025</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-500 transition-colors">Portrait Composition
+                    Mastery</h3>
+                <p class="text-zinc-400 leading-relaxed mb-4">Learn the rules of framing and eye-lines to capture
+                    portraits that speak volumes without saying a word. We explore key techniques for authentic
+                    storytelling.</p>
+                <a href="blog-details.html"
+                    class="inline-flex items-center text-sm font-bold uppercase tracking-widest hover:pl-2 transition-all">Read
+                    More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="group">
+                <a href="blog-details.html" class="block overflow-hidden rounded-2xl aspect-[16/10] mb-6">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Blog Thumb">
+                </a>
+                <div class="flex items-center space-x-4 mb-4 text-xs font-mono uppercase text-zinc-500">
+                    <span class="text-amber-500 font-bold">Tips</span>
+                    <span>•</span>
+                    <span>Sep 21, 2024</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-500 transition-colors">Styling Your Shoot:
+                    What to Wear</h3>
+                <p class="text-zinc-400 leading-relaxed mb-4">Outfit coordination can make or break a photo session.
+                    Here are our dos and don'ts for looking your best in front of the camera...</p>
+                <a href="blog-details.html"
+                    class="inline-flex items-center text-sm font-bold uppercase tracking-widest hover:pl-2 transition-all">Read
+                    More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="group">
+                <a href="blog-details.html" class="block overflow-hidden rounded-2xl aspect-[16/10] mb-6">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Blog Thumb">
+                </a>
+                <div class="flex items-center space-x-4 mb-4 text-xs font-mono uppercase text-zinc-500">
+                    <span class="text-amber-500 font-bold">Commercial</span>
+                    <span>•</span>
+                    <span>Aug 10, 2024</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-500 transition-colors">The Power of Visual
+                    Branding</h3>
+                <p class="text-zinc-400 leading-relaxed mb-4">In a digital world, your imagery is your first impression.
+                    Discover how professional photography elevates your business authority...</p>
+                <a href="blog-details.html"
+                    class="inline-flex items-center text-sm font-bold uppercase tracking-widest hover:pl-2 transition-all">Read
+                    More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="group">
+                <a href="blog-details.html" class="block overflow-hidden rounded-2xl aspect-[16/10] mb-6">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        alt="Blog Thumb">
+                </a>
+                <div class="flex items-center space-x-4 mb-4 text-xs font-mono uppercase text-zinc-500">
+                    <span class="text-amber-500 font-bold">Tips</span>
+                    <span>•</span>
+                    <span>Jul 05, 2024</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-500 transition-colors">Posing Guide for
+                    Non-Models</h3>
+                <p class="text-zinc-400 leading-relaxed mb-4">Feel awkward in front of the lens? You're not alone.
+                    Simple tips and tricks to help you relax and look natural in your photos...</p>
+                <a href="blog-details.html"
+                    class="inline-flex items-center text-sm font-bold uppercase tracking-widest hover:pl-2 transition-all">Read
+                    More <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i></a>
+            </article>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-12 space-x-2">
+            <button
+                class="w-10 h-10 rounded-full border border-amber-500 text-amber-500 font-bold flex items-center justify-center">1</button>
+            <button
+                class="w-10 h-10 rounded-full border border-zinc-700 text-zinc-400 hover:border-white hover:text-white flex items-center justify-center transition-all">2</button>
+            <button
+                class="w-10 h-10 rounded-full border border-zinc-700 text-zinc-400 hover:border-white hover:text-white flex items-center justify-center transition-all"><i
+                    data-lucide="chevron-right" class="w-4 h-4"></i></button>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (Point 16) -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 pt-24 pb-12 px-6 text-left">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-8">
+                        <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                        <span class="text-2xl font-black tracking-tighter uppercase text-white">Lumina Studio</span>
+                    </div>
+                    <p class="text-zinc-500 text-lg max-w-sm mb-8 leading-relaxed">
+                        Capturing the unseen moments of today to create the timeless legacies of tomorrow.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="instagram"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="twitter"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="index.html" class="hover:text-amber-500 transition-colors">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-amber-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-amber-500 transition-colors">Services</a></li>
+                        <li><a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-8">Contact</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li class="flex items-center space-x-3"><i data-lucide="map-pin"
+                                class="w-4 h-4 text-amber-500"></i><span>123 Design St, Creative City</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="mail"
+                                class="w-4 h-4 text-amber-500"></i><span>hello@lumina.studio</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="phone"
+                                class="w-4 h-4 text-amber-500"></i><span>+1 (555) 123-4567</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-zinc-600 text-xs uppercase tracking-widest">&copy; 2025 Lumina Studio. All Rights
+                    Reserved.</p>
+                <div class="flex space-x-8 text-xs text-zinc-600 uppercase tracking-widest font-bold">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script type="module" src="js/blog.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+</body>
+
+</html>

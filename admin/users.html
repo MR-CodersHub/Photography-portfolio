@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - Admin Panel</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 250px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: #1e1e1e;
+            padding: 20px;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #888;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #333;
+            color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="brand" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 40px; color: #fff;">
+            <i class="fas fa-camera" style="margin-right: 8px; color: #f59e0b;"></i>Lumina Studio
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html" id="nav-dashboard"><i class="fas fa-th-large"></i> Dashboard</a></li>
+            <li><a href="users.html" id="nav-users" class="active"><i class="fas fa-users"></i> Users</a></li>
+            <li><a href="bookings.html" id="nav-bookings"><i class="fas fa-calendar-alt"></i> Bookings</a></li>
+            <li><a href="messages.html" id="nav-messages"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="blogs.html" id="nav-blogs"><i class="fas fa-blog"></i> Blogs</a></li>
+            <li><a href="gallery.html" id="nav-gallery"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="#" onclick="logout()" style="margin-top: 20px; color: #888;"><i
+                        class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <div class="page-title" id="page-title" style="font-size: 1.5rem; font-weight: bold;">User Management</div>
+            <div class="user-profile" style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-user-circle" style="font-size: 1.2rem; color: #f59e0b;"></i>
+                <span id="user-name">Loading...</span>
+            </div>
+        </div>
+
+        <div class="table-container glass">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Created At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users_table">
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 20px;">Loading users...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="module" src="../js/admin-users.js"></script>
+</body>
+
+</html>

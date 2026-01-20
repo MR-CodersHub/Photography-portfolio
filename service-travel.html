@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel & Landscape | Lumina Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../src/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-md py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                    <span class="text-xl font-bold tracking-tighter text-white uppercase">Lumina Studio</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#about"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="services.html" class="nav-link text-sm tracking-widest uppercase text-amber-500">Services</a>
+                <a href="gallery.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Gallery</a>
+                <a href="index.html#portfolio"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="blog.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Contact</a>
+
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="text-gray-300 hover:text-amber-500 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block" id="moonIcon"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden" id="sunIcon"></i>
+                </button>
+
+                <button onclick="window.location.href='booking.html'"
+                    class="bg-amber-500 text-zinc-950 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-amber-400 transition-all">Book
+                    Now</button>
+            </div>
+
+            <button class="md:hidden text-white"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-zinc-950 border-t border-zinc-800 py-8 px-6 flex flex-col space-y-6">
+            <a href="index.html" class="text-lg text-white font-light text-left">Home</a>
+            <a href="index.html#about" class="text-lg text-white font-light text-left">About</a>
+            <a href="services.html" class="text-lg text-amber-500 font-bold text-left">Services</a>
+            <a href="gallery.html" class="text-lg text-white font-light text-left">Gallery</a>
+            <a href="index.html#portfolio" class="text-lg text-white font-light text-left">Portfolio</a>
+            <a href="blog.html" class="text-lg text-white font-light text-left">Blog</a>
+            <a href="contact.html" class="text-lg text-white font-light text-left">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative h-[60vh] flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1920"
+                class="w-full h-full object-cover brightness-50" alt="Travel">
+        </div>
+        <div class="relative z-10 max-w-4xl px-6 pt-20">
+            <h4 class="text-amber-500 font-bold uppercase tracking-[0.2em] text-sm mb-4">Service Details</h4>
+            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">Travel & <span
+                    class="italic font-serif">Landscape</span></h1>
+        </div>
+    </header>
+
+    <!-- Overview -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Capturing the World's Beauty</h2>
+            <p class="text-zinc-400 text-lg leading-relaxed mb-12">
+                The world is full of breathtaking vistas and vibrant cultures waiting to be explored. We specialize in
+                capturing the essence of place through stunning travel and landscape photography. Whether for magazines,
+                prints, or tourism campaigns, we provide immersive visuals that transport the viewer and inspire
+                wanderlust.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sample Gallery (Grid) -->
+    <section class="py-12 px-6 bg-zinc-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-2xl font-bold mb-8 uppercase tracking-widest text-center">Sample Gallery</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=800"
+                    class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-500 cursor-pointer"
+                    alt="Gallery">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+                    class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-500 cursor-pointer"
+                    alt="Gallery">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+                    class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-500 cursor-pointer"
+                    alt="Gallery">
+                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+                    class="w-full h-64 object-cover rounded-lg hover:scale-105 transition-transform duration-500 cursor-pointer"
+                    alt="Gallery">
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Workflow -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold uppercase tracking-tighter mb-16 text-center">Our Journey</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center relative">
+                    <div
+                        class="w-16 h-16 rounded-full bg-zinc-800 border border-amber-500 flex items-center justify-center text-xl font-bold text-amber-500 mx-auto mb-6">
+                        1</div>
+                    <h3 class="text-xl font-bold mb-4">Exploration</h3>
+                    <p class="text-zinc-400 text-sm">Researching locations and scouting for the perfect vantage points.
+                    </p>
+                </div>
+                <div class="text-center relative">
+                    <div
+                        class="w-16 h-16 rounded-full bg-zinc-800 border border-amber-500 flex items-center justify-center text-xl font-bold text-amber-500 mx-auto mb-6">
+                        2</div>
+                    <h3 class="text-xl font-bold mb-4">Patience</h3>
+                    <p class="text-zinc-400 text-sm">Waiting for the perfect light and atmospheric conditions.</p>
+                </div>
+                <div class="text-center relative">
+                    <div
+                        class="w-16 h-16 rounded-full bg-zinc-800 border border-amber-500 flex items-center justify-center text-xl font-bold text-amber-500 mx-auto mb-6">
+                        3</div>
+                    <h3 class="text-xl font-bold mb-4">Capture</h3>
+                    <p class="text-zinc-400 text-sm">Using professional techniques to capture raw, natural beauty.
+                    </p>
+                </div>
+                <div class="text-center relative">
+                    <div
+                        class="w-16 h-16 rounded-full bg-zinc-800 border border-amber-500 flex items-center justify-center text-xl font-bold text-amber-500 mx-auto mb-6">
+                        4</div>
+                    <h3 class="text-xl font-bold mb-4">Fulfillment</h3>
+                    <p class="text-zinc-400 text-sm">Delivering prints and high-res files that bring the world home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-24 px-6 bg-zinc-900 border-y border-zinc-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold uppercase tracking-tighter mb-16 text-center">Investment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div
+                    class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-zinc-600 transition-all text-center">
+                    <h3 class="text-2xl font-bold mb-4">Solo Print</h3>
+                    <p class="text-4xl font-black text-amber-500 mb-6">$250</p>
+                    <ul class="text-zinc-400 text-sm space-y-4 mb-8 text-left pl-8 list-disc">
+                        <li>High-Quality Art Print</li>
+                        <li>Digital Back-up</li>
+                        <li>Custom Sizing</li>
+                        <li>Free Shipping</li>
+                    </ul>
+                    <button onclick="window.location.href='booking.html'"
+                        class="w-full bg-zinc-800 hover:bg-white hover:text-black text-white font-bold py-3 rounded-lg uppercase tracking-widest transition-all">Select</button>
+                </div>
+                <!-- Package 2 (Highlighted) -->
+                <div
+                    class="bg-zinc-950 p-8 rounded-2xl border-2 border-amber-500 transform md:-translate-y-4 shadow-2xl relative text-center">
+                    <span
+                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-black text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest">Most
+                        Popular</span>
+                    <h3 class="text-2xl font-bold mb-4">Adventure</h3>
+                    <p class="text-4xl font-black text-amber-500 mb-6">$900</p>
+                    <ul class="text-zinc-400 text-sm space-y-4 mb-8 text-left pl-8 list-disc">
+                        <li>Multi-Shot Series (5)</li>
+                        <li>Behind the Scenes shots</li>
+                        <li>High-Res Digital Set</li>
+                        <li>Commercial Usage</li>
+                    </ul>
+                    <button onclick="window.location.href='booking.html'"
+                        class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-lg uppercase tracking-widest transition-all">Select</button>
+                </div>
+                <!-- Package 3 -->
+                <div
+                    class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 hover:border-zinc-600 transition-all text-center">
+                    <h3 class="text-2xl font-bold mb-4">Expedition</h3>
+                    <p class="text-4xl font-black text-amber-500 mb-6">$3,500</p>
+                    <ul class="text-zinc-400 text-sm space-y-4 mb-8 text-left pl-8 list-disc">
+                        <li>Custom Travel Content</li>
+                        <li>Video Highlights</li>
+                        <li>Extended Licensing</li>
+                        <li>Limited Edition Album</li>
+                    </ul>
+                    <button onclick="window.location.href='booking.html'"
+                        class="w-full bg-zinc-800 hover:bg-white hover:text-black text-white font-bold py-3 rounded-lg uppercase tracking-widest transition-all">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 pt-24 pb-12 px-6 text-left">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-8">
+                        <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                        <span class="text-2xl font-black tracking-tighter uppercase text-white">Lumina Studio</span>
+                    </div>
+                    <p class="text-zinc-500 text-lg max-w-sm mb-8 leading-relaxed">
+                        Capturing the unseen moments of today to create the timeless legacies of tomorrow.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="instagram"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="twitter"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="index.html" class="hover:text-amber-500 transition-colors">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-amber-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-amber-500 transition-colors">Services</a></li>
+                        <li><a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-8">Contact</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li class="flex items-center space-x-3"><i data-lucide="map-pin"
+                                class="w-4 h-4 text-amber-500"></i><span>123 Design St, Creative City</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="mail"
+                                class="w-4 h-4 text-amber-500"></i><span>hello@lumina.studio</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="phone"
+                                class="w-4 h-4 text-amber-500"></i><span>+1 (555) 123-4567</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-zinc-600 text-xs uppercase tracking-widest">&copy; 2025 Lumina Studio. All Rights
+                    Reserved.</p>
+                <div class="flex space-x-8 text-xs text-zinc-600 uppercase tracking-widest font-bold">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

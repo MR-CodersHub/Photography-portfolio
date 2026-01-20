@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Lumina Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="../src/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-md py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                    <span class="text-xl font-bold tracking-tighter text-white uppercase">Lumina Studio</span>
+                </a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#about"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="services.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="gallery.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Gallery</a>
+                <a href="index.html#portfolio"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="blog.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Blog</a>
+                <a href="contact.html"
+                    class="nav-link text-sm tracking-widest uppercase text-gray-300 hover:text-white transition-colors">Contact</a>
+
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="text-gray-300 hover:text-amber-500 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 block" id="moonIcon"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden" id="sunIcon"></i>
+                </button>
+
+                <button onclick="window.location.href='booking.html'"
+                    class="bg-amber-500 text-zinc-950 px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-amber-400 transition-all">Book
+                    Now</button>
+            </div>
+            <button class="md:hidden text-white"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-zinc-950 border-t border-zinc-800 py-8 px-6 flex flex-col space-y-6">
+            <a href="index.html" class="text-lg text-white font-light text-left">Home</a>
+            <a href="index.html#about" class="text-lg text-white font-light text-left">About</a>
+            <a href="services.html" class="text-lg text-white font-light text-left">Services</a>
+            <a href="gallery.html" class="text-lg text-white font-light text-left">Gallery</a>
+            <a href="index.html#portfolio" class="text-lg text-white font-light text-left">Portfolio</a>
+            <a href="blog.html" class="text-lg text-white font-light text-left">Blog</a>
+            <a href="contact.html" class="text-lg text-white font-light text-left">Contact</a>
+            <a href="booking.html" class="text-lg text-white font-light text-left">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="pt-40 pb-20 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6">Investment <span
+                class="text-amber-500 italic">&</span> Value</h1>
+        <p class="text-xl text-zinc-400 max-w-2xl mx-auto">Transparent pricing for premium storytelling. Choose the
+            package that fits your needs.</p>
+    </header>
+
+    <!-- Pricing Cards -->
+    <section class="py-10 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic -->
+            <div
+                class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-amber-500/50 transition-colors relative group">
+                <h3 class="text-zinc-400 font-bold uppercase tracking-widest text-sm mb-4">Essential</h3>
+                <div class="text-4xl font-bold mb-6">$1,200</div>
+                <p class="text-zinc-500 text-sm mb-8 leading-relaxed">Perfect for intimate elopements or simple portrait
+                    sessions.</p>
+                <ul class="space-y-4 mb-8 text-sm text-zinc-300">
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>4 Hours Coverage</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>1 Photographer</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>200+ Edited Images</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>Online Gallery</span></li>
+                </ul>
+                <a href="booking.html"
+                    class="block w-full py-4 text-center border border-zinc-700 rounded-xl hover:bg-white hover:text-zinc-950 hover:border-white transition-all font-bold uppercase tracking-widest text-xs">Choose
+                    Essential</a>
+            </div>
+
+            <!-- Standard (Popular) -->
+            <div
+                class="bg-zinc-900 border border-amber-500 rounded-3xl p-8 relative transform md:-translate-y-4 shadow-2xl shadow-amber-900/10">
+                <div
+                    class="absolute top-0 right-0 bg-amber-500 text-zinc-950 text-[10px] font-bold uppercase px-3 py-1 rounded-bl-xl rounded-tr-2xl tracking-widest">
+                    Most Popular</div>
+                <h3 class="text-amber-500 font-bold uppercase tracking-widest text-sm mb-4">Classic</h3>
+                <div class="text-5xl font-bold mb-6">$2,800</div>
+                <p class="text-zinc-400 text-sm mb-8 leading-relaxed">Complete coverage for most weddings and events.
+                    The sweet spot.</p>
+                <ul class="space-y-4 mb-8 text-sm text-white">
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>8 Hours Coverage</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>2 Photographers</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>500+ Edited Images</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>Engagement Session</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>Priority Editing</span></li>
+                </ul>
+                <a href="booking.html"
+                    class="block w-full py-4 text-center bg-amber-500 text-zinc-950 rounded-xl hover:bg-amber-400 transition-all font-bold uppercase tracking-widest text-xs">Choose
+                    Classic</a>
+            </div>
+
+            <!-- Premium -->
+            <div
+                class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-amber-500/50 transition-colors relative group">
+                <h3 class="text-zinc-400 font-bold uppercase tracking-widest text-sm mb-4">Heirloom</h3>
+                <div class="text-4xl font-bold mb-6">$4,500</div>
+                <p class="text-zinc-500 text-sm mb-8 leading-relaxed">The ultimate luxury experience with full-day
+                    coverage and prints.</p>
+                <ul class="space-y-4 mb-8 text-sm text-zinc-300">
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>All Day Coverage (12h)</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>3 Photographers</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>Unlimited Images</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>Luxury Photo Album</span></li>
+                    <li class="flex items-center space-x-3"><i data-lucide="check"
+                            class="w-4 h-4 text-amber-500"></i><span>Drone Coverage</span></li>
+                </ul>
+                <a href="booking.html"
+                    class="block w-full py-4 text-center border border-zinc-700 rounded-xl hover:bg-white hover:text-zinc-950 hover:border-white transition-all font-bold uppercase tracking-widest text-xs">Choose
+                    Heirloom</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Compare Features</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-zinc-800">
+                            <th class="py-4 px-6 text-zinc-500 font-normal uppercase tracking-widest text-xs">Feature
+                            </th>
+                            <th class="py-4 px-6 font-bold text-center">Essential</th>
+                            <th class="py-4 px-6 font-bold text-center text-amber-500">Classic</th>
+                            <th class="py-4 px-6 font-bold text-center">Heirloom</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr class="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+                            <td class="py-6 px-6 text-zinc-400">Hours of Coverage</td>
+                            <td class="py-6 px-6 text-center">4 Hours</td>
+                            <td class="py-6 px-6 text-center">8 Hours</td>
+                            <td class="py-6 px-6 text-center">12+ Hours</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+                            <td class="py-6 px-6 text-zinc-400">Photographers</td>
+                            <td class="py-6 px-6 text-center">1</td>
+                            <td class="py-6 px-6 text-center">2</td>
+                            <td class="py-6 px-6 text-center">3</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+                            <td class="py-6 px-6 text-zinc-400">Edited Images</td>
+                            <td class="py-6 px-6 text-center">200+</td>
+                            <td class="py-6 px-6 text-center">500+</td>
+                            <td class="py-6 px-6 text-center">Unlimited</td>
+                        </tr>
+                        <tr class="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+                            <td class="py-6 px-6 text-zinc-400">Physical Album</td>
+                            <td class="py-6 px-6 text-center text-zinc-600"><i data-lucide="minus"
+                                    class="mx-auto w-4 h-4"></i></td>
+                            <td class="py-6 px-6 text-center text-zinc-600"><i data-lucide="minus"
+                                    class="mx-auto w-4 h-4"></i></td>
+                            <td class="py-6 px-6 text-center text-amber-500"><i data-lucide="check"
+                                    class="mx-auto w-4 h-4"></i></td>
+                        </tr>
+                        <tr class="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+                            <td class="py-6 px-6 text-zinc-400">Drone Coverage</td>
+                            <td class="py-6 px-6 text-center text-zinc-600"><i data-lucide="minus"
+                                    class="mx-auto w-4 h-4"></i></td>
+                            <td class="py-6 px-6 text-center text-zinc-600">Add-on (+$300)</td>
+                            <td class="py-6 px-6 text-center text-amber-500"><i data-lucide="check"
+                                    class="mx-auto w-4 h-4"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Quote -->
+    <section class="py-20 px-6 bg-zinc-900 border-y border-zinc-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Need something specific?</h2>
+            <p class="text-zinc-400 mb-8 max-w-xl mx-auto">We understand that every project is unique. Let's discuss
+                your vision and create a custom package just for you.</p>
+            <a href="booking.html"
+                class="inline-flex items-center space-x-2 text-amber-500 font-bold uppercase tracking-widest hover:text-white transition-colors border-b-2 border-amber-500 pb-1 hover:border-white">
+                <span>Request Custom Quote</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (Point 16) -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 pt-24 pb-12 px-6 text-left">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-8">
+                        <i data-lucide="camera" class="w-8 h-8 text-amber-500"></i>
+                        <span class="text-2xl font-black tracking-tighter uppercase text-white">Lumina Studio</span>
+                    </div>
+                    <p class="text-zinc-500 text-lg max-w-sm mb-8 leading-relaxed">
+                        Capturing the unseen moments of today to create the timeless legacies of tomorrow.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="instagram"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="twitter"></i></a>
+                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                                data-lucide="facebook"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-8">Quick Links</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="index.html" class="hover:text-amber-500 transition-colors">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-amber-500 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-amber-500 transition-colors">Services</a></li>
+                        <li><a href="gallery.html" class="hover:text-amber-500 transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-8">Contact</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li class="flex items-center space-x-3"><i data-lucide="map-pin"
+                                class="w-4 h-4 text-amber-500"></i><span>123 Design St, Creative City</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="mail"
+                                class="w-4 h-4 text-amber-500"></i><span>hello@lumina.studio</span></li>
+                        <li class="flex items-center space-x-3"><i data-lucide="phone"
+                                class="w-4 h-4 text-amber-500"></i><span>+1 (555) 123-4567</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-zinc-600 text-xs uppercase tracking-widest">&copy; 2025 Lumina Studio. All Rights
+                    Reserved.</p>
+                <div class="flex space-x-8 text-xs text-zinc-600 uppercase tracking-widest font-bold">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // lucide icons are handled in init() in main.js
+    </script>
+</body>
+
+</html>
