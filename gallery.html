@@ -149,9 +149,9 @@
         <div class="max-w-7xl mx-auto mb-12 flex flex-wrap gap-4">
             <button onclick="filterGallery('all')"
                 class="gallery-filter-btn active px-8 py-3 rounded-full border border-zinc-800 text-sm font-bold uppercase tracking-widest transition-all hover:border-amber-500">All</button>
-            <button onclick="filterGallery('weddings')"
+            <button onclick="filterGallery('wedding')"
                 class="gallery-filter-btn px-8 py-3 rounded-full border border-zinc-800 text-sm font-bold uppercase tracking-widest transition-all hover:border-amber-500">Weddings</button>
-            <button onclick="filterGallery('portraits')"
+            <button onclick="filterGallery('portrait')"
                 class="gallery-filter-btn px-8 py-3 rounded-full border border-zinc-800 text-sm font-bold uppercase tracking-widest transition-all hover:border-amber-500">Portraits</button>
             <button onclick="filterGallery('editorial')"
                 class="gallery-filter-btn px-8 py-3 rounded-full border border-zinc-800 text-sm font-bold uppercase tracking-widest transition-all hover:border-amber-500">Editorial</button>
@@ -228,11 +228,13 @@
                         Capturing the unseen moments of today to create the timeless legacies of tomorrow.
                     </p>
                     <div class="flex space-x-6">
-                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                        <a href="https://www.instagram.com/"
+                            class="text-zinc-500 hover:text-amber-500 transition-colors"><i
                                 data-lucide="instagram"></i></a>
-                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                        <a href="https://twitter.com/" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
                                 data-lucide="twitter"></i></a>
-                        <a href="#" class="text-zinc-500 hover:text-amber-500 transition-colors"><i
+                        <a href="https://www.facebook.com/"
+                            class="text-zinc-500 hover:text-amber-500 transition-colors"><i
                                 data-lucide="facebook"></i></a>
                     </div>
                 </div>
@@ -257,13 +259,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="pt-12 border-t border-zinc-900 justify-center text-center">
                 <p class="text-zinc-600 text-xs uppercase tracking-widest">&copy; 2025 Lumina Studio. All Rights
                     Reserved.</p>
-                <div class="flex space-x-8 text-xs text-zinc-600 uppercase tracking-widest font-bold">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                </div>
             </div>
         </div>
     </footer>
@@ -293,7 +291,7 @@
     </style>
 
     <script src="main.js"></script>
-    <script type="module" src="js/gallery.js"></script>
+    <script src="js/gallery.js"></script>
     <script type="module" src="js/navbar.js"></script>
 </body>
 

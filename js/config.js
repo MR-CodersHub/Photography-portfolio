@@ -113,12 +113,14 @@ export { auth, db, storage, supabase };
 (function seedData() {
     if (!localStorage.getItem('gallery')) {
         const galleryData = [
-            { id: '1', title: 'Ethereal Peaks', category: 'landscape', image_path: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
-            { id: '2', title: 'Urban Rhythms', category: 'urban', image_path: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
-            { id: '3', title: 'Golden Hour', category: 'portrait', image_path: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
-            { id: '4', title: 'Silent Waters', category: 'nature', image_path: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
-            { id: '5', title: 'City Lights', category: 'urban', image_path: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
-            { id: '6', title: 'Raw Emotion', category: 'portrait', image_path: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() }
+            { id: '1', title: 'Mountain Ceremony', category: 'wedding', image_path: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '2', title: 'Beach Vows', category: 'wedding', image_path: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '3', title: 'Golden Hour Portrait', category: 'portrait', image_path: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '4', title: 'Studio Portrait', category: 'portrait', image_path: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '5', title: 'Fashion Editorial', category: 'editorial', image_path: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '6', title: 'Magazine Cover', category: 'editorial', image_path: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '7', title: 'Silent Waters', category: 'nature', image_path: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() },
+            { id: '8', title: 'Mountain View', category: 'nature', image_path: 'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&q=80&w=800', created_at: new Date().toISOString() }
         ];
         localStorage.setItem('gallery', JSON.stringify(galleryData));
     }

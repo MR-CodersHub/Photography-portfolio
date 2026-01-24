@@ -1,4 +1,4 @@
-import { supabase } from './config.js';
+// Gallery filter and lightbox functionality - uses static HTML content
 
 // Initialize Lucide
 if (window.lucide) {
@@ -8,7 +8,11 @@ if (window.lucide) {
 window.filterGallery = (category) => {
     document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.innerText.toLowerCase() === category.toLowerCase()) {
+        const btnText = btn.innerText.toLowerCase();
+        // Match 'all' exactly, or check if button text starts with the category
+        if (category.toLowerCase() === 'all' && btnText === 'all') {
+            btn.classList.add('active');
+        } else if (btnText.startsWith(category.toLowerCase())) {
             btn.classList.add('active');
         }
     });
@@ -34,51 +38,26 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') window.closeLightbox();
 });
 
-async function loadGallery() {
-    try {
-        const { data: galleryItems, error } = await supabase
-            .from('gallery')
-            .select('*')
-            .order('created_at', { ascending: false });
+// Dynamic loading disabled - using static HTML content for reliable filtering
+// async function loadGallery() { ... }
 
-        if (error) throw error;
-
-        const grid = document.getElementById('galleryGrid');
-        if (!grid) return;
-
-        if (galleryItems.length > 0) {
-            grid.innerHTML = '';
-            galleryItems.forEach((img) => {
-                const categoryClass = img.category ? img.category.toLowerCase() : 'other';
-
-                const div = document.createElement('div');
-                div.className = `gallery-item ${categoryClass} group relative overflow-hidden rounded-2xl cursor-pointer break-inside-avoid mb-6`;
-                div.innerHTML = `
-                    <img src="${img.image_path}"
-                        class="w-full hover:scale-105 transition-transform duration-700" alt="${img.title}">
-                    <div
-                        class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i data-lucide="maximize-2" class="text-amber-500 w-10 h-10"></i>
-                    </div>
-                `;
-
-                div.addEventListener('click', () => {
-                    const lightboxImg = document.getElementById('lightboxImg');
-                    const lightbox = document.getElementById('lightbox');
-                    if (lightboxImg && lightbox) {
-                        lightboxImg.src = img.image_path;
-                        lightbox.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden';
-                    }
-                });
-
-                grid.appendChild(div);
-            });
-            if (window.lucide) window.lucide.createIcons();
-        }
-    } catch (err) {
-        console.error('Failed to load gallery from Supabase', err);
-    }
+// Instead, add click handlers to static gallery items for lightbox
+function initStaticGallery() {
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (img) {
+                const lightboxImg = document.getElementById('lightboxImg');
+                const lightbox = document.getElementById('lightbox');
+                if (lightboxImg && lightbox) {
+                    lightboxImg.src = img.src;
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        });
+    });
 }
 
-loadGallery();
+// Initialize static gallery on page load
+initStaticGallery();
