@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About | Lumina Studio - Our Story & Vision</title>
+    <meta name="description"
+        content="Discover the story behind Lumina Studio. Learn about our philosophy, our team of visionary photographers, and our commitment to crafting timeless visual legacies.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="About Lumina Studio - Our Story & Vision">
+    <meta property="og:description"
+        content="Discover the international editorial house dedicated to the preservation of human legacy.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.470.0"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-white text-slate-900 overflow-x-hidden">
+
+    <!-- Grainy Overlay for Premium Film Effect -->
+    <div class="grainy-overlay"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar"
+        class="navbar fixed w-full z-[9999] transition-all duration-500 bg-zinc-950/80 backdrop-blur-xl py-3 border-b border-white/5 px-4 lg:px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center flex-shrink-0">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div
+                        class="bg-amber-500/10 p-2 rounded-xl border border-amber-500/20 group-hover:bg-amber-500 transition-all duration-500">
+                        <i data-lucide="camera"
+                            class="w-5 h-5 md:w-6 md:h-6 text-amber-500 group-hover:text-black transition-colors flex-shrink-0"></i>
+                    </div>
+                    <span class="brand-logo text-lg md:text-xl tracking-tighter">Lumina Studio</span>
+                </a>
+            </div>
+
+            <!-- Desktop & Tablet Menu -->
+            <div class="flex items-center gap-2 md:gap-4">
+                <!-- Main Nav Links - Desktop Only -->
+                <div class="hidden lg:flex items-center gap-0.5 xl:gap-2 mr-4">
+                    <a href="index.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Home</a>
+                    <a href="moments-in-motion.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Home2</a>
+                    <a href="about.html"
+                        class="nav-link active px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase font-bold whitespace-nowrap transition-all">About</a>
+                    <a href="services.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Services</a>
+                    <a href="gallery.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Archive</a>
+                    <a href="featured-work.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Portfolio</a>
+                    <a href="blog.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Blog</a>
+                    <a href="pricing.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-amber-500 font-bold whitespace-nowrap transition-all">Pricing</a>
+                    <a href="contact.html"
+                        class="nav-link px-3 py-2 text-[10px] xl:text-[11px] tracking-widest uppercase text-zinc-400 hover:text-white font-bold whitespace-nowrap transition-all">Contact</a>
+                </div>
+
+                <!-- Shared Actions (Visible on Tablet & Desktop) -->
+                <div class="flex items-center gap-1 sm:gap-4">
+                    <!-- Profile Icon -->
+                    <div class="relative z-50">
+                        <button id="profileBtn" class="text-white hover:text-amber-500 transition-colors p-2">
+                            <i data-lucide="user" class="w-5 h-5 md:w-6 md:h-6"></i>
+                        </button>
+                        <div id="profileDropdown"
+                            class="absolute right-0 mt-4 w-60 bg-zinc-950/98 backdrop-blur-2xl border border-zinc-800 rounded-2xl shadow-2xl opacity-0 invisible transition-all duration-300 transform origin-top-right translate-y-2">
+                            <!-- Arrow -->
+                            <div
+                                class="absolute -top-2 right-4 w-4 h-4 bg-zinc-950/98 border-t border-l border-zinc-800 transform rotate-45">
+                            </div>
+                            <div class="relative p-2.5 space-y-1">
+                                <div class="px-4 py-3 border-b border-white/5 mb-1.5">
+                                    <p class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500">Account
+                                        Access</p>
+                                </div>
+                                <a href="signin.html"
+                                    class="flex items-center space-x-3 px-4 py-3.5 text-sm text-zinc-300 hover:bg-amber-500/10 hover:text-amber-500 rounded-xl transition-all group">
+                                    <div
+                                        class="p-2 bg-zinc-900 rounded-lg border border-zinc-800 group-hover:border-amber-500/30 transition-colors">
+                                        <i data-lucide="log-in" class="w-4 h-4 text-amber-500"></i>
+                                    </div>
+                                    <span class="font-bold tracking-tight">Login / Sign Up</span>
+                                </a>
+                                <a href="user/dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3.5 text-sm text-zinc-300 hover:bg-amber-500/10 hover:text-amber-500 rounded-xl transition-all group">
+                                    <div
+                                        class="p-2 bg-zinc-900 rounded-lg border border-zinc-800 group-hover:border-amber-500/30 transition-colors">
+                                        <i data-lucide="layout-dashboard" class="w-4 h-4 text-zinc-400"></i>
+                                    </div>
+                                    <span class="font-bold tracking-tight">User Dashboard</span>
+                                </a>
+                                <a href="admin/dashboard.html"
+                                    class="flex items-center space-x-3 px-4 py-3.5 text-sm text-zinc-300 hover:bg-amber-500/10 hover:text-amber-500 rounded-xl transition-all group">
+                                    <div
+                                        class="p-2 bg-zinc-900 rounded-lg border border-zinc-800 group-hover:border-amber-500/30 transition-colors">
+                                        <i data-lucide="shield-check" class="w-4 h-4 text-zinc-400"></i>
+                                    </div>
+                                    <span class="font-bold tracking-tight">Admin Dashboard</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="booking.html"
+                        class="hidden sm:block bg-amber-500 text-zinc-950 px-4 xl:px-6 py-2 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20 whitespace-nowrap">Book
+                        Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
+                    class="lg:hidden flex items-center text-white p-2 focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon-open" class="w-6 h-6 block"></i>
+                    <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[10000] bg-zinc-950 flex flex-col hidden overflow-y-auto page-transition">
+
+        <!-- Mobile Header -->
+        <div class="flex items-center justify-end p-6 border-b border-zinc-900 sticky top-0 bg-zinc-950 z-10">
+            <div class="flex items-center space-x-3">
+                <a href="booking.html"
+                    class="bg-amber-600/20 text-amber-500 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                    <i data-lucide="calendar" class="w-3 h-3"></i>
+                    Book
+                </a>
+                <button onclick="toggleMobileMenu()" class="p-2 text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Links -->
+        <div class="flex-1 p-6 space-y-2">
+            <a href="index.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="home"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Home</span>
+            </a>
+
+            <a href="moments-in-motion.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="play"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Home2</span>
+            </a>
+
+            <a href="about.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="info"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">About</span>
+            </a>
+
+            <a href="services.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="zap" class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Services</span>
+            </a>
+
+            <a href="blog.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="book-open"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Blog</span>
+            </a>
+
+            <a href="pricing.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="tag" class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Pricing</span>
+            </a>
+
+            <a href="gallery.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="image"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Archive</span>
+            </a>
+
+            <a href="featured-work.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="star"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Portfolio</span>
+            </a>
+
+            <a href="contact.html" onclick="toggleMobileMenu()"
+                class="flex items-center space-x-4 p-4 rounded-2xl hover:bg-zinc-900/50 transition-all group">
+                <div
+                    class="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center group-hover:bg-amber-500/10 transition-colors">
+                    <i data-lucide="phone"
+                        class="w-5 h-5 text-zinc-500 group-hover:text-amber-500 transition-colors"></i>
+                </div>
+                <span class="font-medium text-lg text-zinc-400 group-hover:text-white">Contact</span>
+            </a>
+        </div>
+
+        <!-- Mobile Footer Actions -->
+        <div class="p-6 space-y-4 border-t border-zinc-900 bg-zinc-950">
+            <button onclick="window.location.href='booking.html'"
+                class="w-full bg-amber-500 text-black font-black uppercase tracking-widest py-3 rounded-lg hover:bg-amber-400 transition-all flex items-center justify-center gap-2 text-xs">
+                <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                Book Appointment
+            </button>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="window.location.href='signin.html'"
+                    class="w-full bg-zinc-900 text-white font-bold uppercase tracking-widest py-2.5 rounded-lg border border-zinc-800 hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 text-[10px]">
+                    <i data-lucide="log-in" class="w-3.5 h-3.5 text-amber-500"></i>
+                    Login
+                </button>
+                <button onclick="window.location.href='signup.html'"
+                    class="w-full bg-transparent text-zinc-400 font-bold uppercase tracking-widest py-2.5 rounded-lg border border-zinc-800 hover:text-white hover:border-zinc-700 transition-all flex items-center justify-center gap-2 text-[10px]">
+                    <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero relative min-h-screen flex items-center pt-44 lg:py-32 px-6 bg-zinc-950">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <!-- Left: Text Content -->
+            <div class="z-10 order-2 lg:order-1 reveal">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">Our Story</h4>
+                <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.9]">
+                    Crafting <br><span class="hero-accent italic">Timeless</span>
+                    <br> Legacies
+                </h1>
+                <p class="text-xl text-zinc-400 leading-relaxed mb-10 max-w-xl">
+                    We are more than photographers. We are visual storytellers, memory architects, and guardians of
+                    fleeting moments transformed into eternal narratives.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="contact.html"
+                        class="hero-btn primary bg-amber-500 text-zinc-950 px-10 py-5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-amber-400 transition-all shadow-xl shadow-amber-500/20">
+                        Work With Us
+                    </a>
+                    <a href="gallery.html"
+                        class="hero-btn glass bg-zinc-900 border border-zinc-800 text-white px-10 py-5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-zinc-800 transition-all">
+                        View Portfolio
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Hero Image -->
+            <div class="order-1 lg:order-2 relative reveal-right">
+                <div class="relative rounded-[2.5rem] overflow-hidden border border-zinc-800 aspect-[4/5] shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1200"
+                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105"
+                        alt="Alexandra Chen, Lead Photographer and Founder of Lumina Studio">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                </div>
+                <!-- Floating Stats -->
+                <div
+                    class="absolute -bottom-8 -left-8 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 backdrop-blur-xl">
+                    <p class="text-4xl font-black text-amber-500 mb-1">10+</p>
+                    <p class="text-xs uppercase tracking-widest text-zinc-500 font-bold">Years Experience</p>
+                </div>
+                <div
+                    class="absolute -top-8 -right-8 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 backdrop-blur-xl">
+                    <p class="text-4xl font-black text-amber-500 mb-1">500+</p>
+                    <p class="text-xs uppercase tracking-widest text-zinc-500 font-bold">Stories Told</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORIGIN STORY SECTION -->
+    <section class="px-6 bg-zinc-900 border-t border-zinc-800 py-32">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">The Beginning</h4>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
+                    Where It All <span class="text-amber-500 italic">Started</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-zinc-300 leading-relaxed">
+                        Lumina Studio was born from a simple yet profound realization: <span
+                            class="text-amber-500 font-bold">every moment deserves to be remembered, not just
+                            recorded</span>. Founded in 2015, we started with a single camera, an unwavering vision, and
+                        a commitment to editorial excellence.
+                    </p>
+                    <p class="text-lg text-zinc-400 leading-relaxed">
+                        What began as a passion project in a small Brooklyn loft has evolved into an internationally
+                        recognized photography house, trusted by couples, brands, and visionaries who demand nothing
+                        less than perfection.
+                    </p>
+                    <p class="text-lg text-zinc-400 leading-relaxed">
+                        Our journey has taken us from intimate backyard ceremonies to grand destination weddings, from
+                        emerging startups to Fortune 500 brands, always maintaining our core philosophy: <span
+                            class="text-white font-semibold">authenticity over artifice, emotion over perfection</span>.
+                    </p>
+                </div>
+                <div class="relative rounded-2xl overflow-hidden border border-zinc-800">
+                    <img loading="lazy" src="assets/img/featured/golden-hour.jfif" class="w-full h-full object-cover aspect-[4/5]"
+                        alt="Our Journey">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY SECTION -->
+    <section class="px-6 bg-zinc-950 border-t border-zinc-800 py-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">Our Beliefs</h4>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
+                    The Lumina <span class="text-amber-500 italic">Philosophy</span>
+                </h2>
+                <p class="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+                    We believe in the power of visual storytelling to transcend time, preserve legacy, and celebrate the
+                    extraordinary in the everyday.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Philosophy 1 -->
+                <div
+                    class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all group">
+                    <div
+                        class="w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-all">
+                        <i data-lucide="heart"
+                            class="w-8 h-8 text-amber-500 group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-4">Authentic Emotion</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        We don't stage moments—we capture them. Real tears, genuine laughter, unscripted joy. That's
+                        where the magic lives.
+                    </p>
+                </div>
+
+                <!-- Philosophy 2 -->
+                <div
+                    class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all group">
+                    <div
+                        class="w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-all">
+                        <i data-lucide="eye"
+                            class="w-8 h-8 text-amber-500 group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-4">Editorial Vision</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Inspired by high fashion and cinematic storytelling, we approach every project with the
+                        precision of a magazine cover shoot.
+                    </p>
+                </div>
+
+                <!-- Philosophy 3 -->
+                <div
+                    class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-amber-500/50 transition-all group">
+                    <div
+                        class="w-16 h-16 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-500 transition-all">
+                        <i data-lucide="infinity"
+                            class="w-8 h-8 text-amber-500 group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold uppercase tracking-tight mb-4">Timeless Quality</h3>
+                    <p class="text-zinc-400 leading-relaxed">
+                        Trends fade. Timeless imagery endures. We create photographs that will look as stunning in 50
+                        years as they do today.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="px-6 bg-zinc-900 border-t border-zinc-800 py-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">The Creators</h4>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
+                    Meet The <span class="text-amber-500 italic">Visionaries</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Team Member 1 -->
+                <div class="group">
+                    <div class="relative rounded-2xl overflow-hidden border border-zinc-800 mb-6 aspect-[3/4]">
+                        <img loading="lazy" src="assets/img/team/founder.jfif"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            alt="Lead Photographer">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <p class="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Founder &
+                                    Lead Photographer</p>
+                                <h3 class="text-white text-white-always text-2xl font-bold">Alexandra Chen</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Alexandra Chen</h3>
+                    <p class="text-amber-500 text-sm font-bold uppercase tracking-widest mb-3">Founder & Lead
+                        Photographer</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        With 12 years of experience and a background in fine art photography, Alexandra brings an
+                        unparalleled eye for composition and emotion.
+                    </p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="group">
+                    <div class="relative rounded-2xl overflow-hidden border border-zinc-800 mb-6 aspect-[3/4]">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            alt="Creative Director">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <p class="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Creative
+                                    Director</p>
+                                <h3 class="text-white text-white-always text-2xl font-bold">Marcus Rivera</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Marcus Rivera</h3>
+                    <p class="text-amber-500 text-sm font-bold uppercase tracking-widest mb-3">Creative Director</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Former fashion photographer turned creative visionary, Marcus shapes the editorial direction of
+                        every Lumina project.
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="group">
+                    <div class="relative rounded-2xl overflow-hidden border border-zinc-800 mb-6 aspect-[3/4]">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                            alt="Senior Photographer">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <p class="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">Senior
+                                    Photographer</p>
+                                <h3 class="text-white text-white-always text-2xl font-bold">Sophia Laurent</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sophia Laurent</h3>
+                    <p class="text-amber-500 text-sm font-bold uppercase tracking-widest mb-3">Senior Photographer</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Specializing in intimate moments and candid storytelling, Sophia captures the unspoken
+                        connections that define relationships.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES SECTION -->
+    <section class="px-6 bg-zinc-950 border-t border-zinc-800 py-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">What Drives Us</h4>
+                    <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8">
+                        Our Core <span class="text-amber-500 italic">Values</span>
+                    </h2>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/20">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Integrity First</h3>
+                                <p class="text-zinc-400 leading-relaxed">We honor every commitment, deliver on every
+                                    promise, and treat every client's story with the respect it deserves.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/20">
+                                <i data-lucide="sparkles" class="w-6 h-6 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Relentless Excellence</h3>
+                                <p class="text-zinc-400 leading-relaxed">Good enough is never good enough. We obsess
+                                    over every detail, every frame, every moment.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/20">
+                                <i data-lucide="users" class="w-6 h-6 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Client-Centric Approach</h3>
+                                <p class="text-zinc-400 leading-relaxed">Your vision guides our lens. We listen, adapt,
+                                    and collaborate to bring your story to life.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0 border border-amber-500/20">
+                                <i data-lucide="zap" class="w-6 h-6 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Innovation & Evolution</h3>
+                                <p class="text-zinc-400 leading-relaxed">We stay ahead of trends, master new techniques,
+                                    and constantly push the boundaries of visual storytelling.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square">
+                        <img loading="lazy" src="assets/img/featured/urban-soul.jfif"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Our Values">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square mt-12">
+                        <img loading="lazy" src="assets/img/featured/vogue-vibes.jfif"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Our Values">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square -mt-12">
+                        <img loading="lazy" src="assets/img/philosophy/ceremony.jfif"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Our Values">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-zinc-800 aspect-square">
+                        <img loading="lazy" src="assets/img/philosophy/reception.jfif"
+                            class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                            alt="Our Values">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section class="px-6 bg-zinc-900 border-t border-zinc-800 py-32">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">How We Work</h4>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
+                    The Lumina <span class="text-amber-500 italic">Process</span>
+                </h2>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="flex items-start space-x-8 group">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500 transition-all">
+                            <span
+                                class="text-3xl font-black text-amber-500 group-hover:text-black transition-colors">01</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Discovery & Consultation</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed">
+                            We begin with a deep dive into your vision. Through detailed conversations, mood boards, and
+                            creative brainstorming, we align on style, expectations, and the story you want to tell.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex items-start space-x-8 group">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500 transition-all">
+                            <span
+                                class="text-3xl font-black text-amber-500 group-hover:text-black transition-colors">02</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Creative Planning</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed">
+                            Our team crafts a detailed shot list, timeline, and creative direction. We scout locations,
+                            plan lighting, and prepare every detail to ensure flawless execution.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex items-start space-x-8 group">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500 transition-all">
+                            <span
+                                class="text-3xl font-black text-amber-500 group-hover:text-black transition-colors">03</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">The Shoot</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed">
+                            On the day, we work seamlessly, capturing candid moments and crafting editorial
+                            compositions. Our unobtrusive approach ensures you stay present while we preserve every
+                            precious second.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex items-start space-x-8 group">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500 transition-all">
+                            <span
+                                class="text-3xl font-black text-amber-500 group-hover:text-black transition-colors">04</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Post-Production Mastery</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed">
+                            Every image is meticulously edited using our signature color grading and retouching
+                            techniques. We enhance, never alter—preserving authenticity while elevating artistry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex items-start space-x-8 group">
+                    <div class="flex-shrink-0">
+                        <div
+                            class="w-20 h-20 bg-amber-500/10 rounded-2xl flex items-center justify-center border border-amber-500/20 group-hover:bg-amber-500 transition-all">
+                            <span
+                                class="text-3xl font-black text-amber-500 group-hover:text-black transition-colors">05</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Delivery & Beyond</h3>
+                        <p class="text-zinc-400 text-lg leading-relaxed">
+                            Receive your curated gallery within 4-6 weeks, complete with high-resolution files,
+                            print-ready formats, and optional premium albums. We're here for you long after delivery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section class="px-6 bg-zinc-950 border-t border-zinc-800 py-32">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h4 class="text-amber-500 font-bold uppercase tracking-[0.4em] text-xs mb-6">Recognition</h4>
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">
+                    Awards & <span class="text-amber-500 italic">Achievements</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <p class="text-5xl md:text-6xl font-black text-amber-500 mb-4">500+</p>
+                    <p class="text-sm uppercase tracking-widest text-zinc-500 font-bold">Projects Completed</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl md:text-6xl font-black text-amber-500 mb-4">15+</p>
+                    <p class="text-sm uppercase tracking-widest text-zinc-500 font-bold">Industry Awards</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl md:text-6xl font-black text-amber-500 mb-4">98%</p>
+                    <p class="text-sm uppercase tracking-widest text-zinc-500 font-bold">Client Satisfaction</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-5xl md:text-6xl font-black text-amber-500 mb-4">25+</p>
+                    <p class="text-sm uppercase tracking-widest text-zinc-500 font-bold">Countries Served</p>
+                </div>
+            </div>
+
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
+                    <i data-lucide="award" class="w-12 h-12 text-amber-500 mx-auto mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Best Wedding Photographer</h3>
+                    <p class="text-zinc-500 text-sm">WeddingWire Couples' Choice 2024</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
+                    <i data-lucide="trophy" class="w-12 h-12 text-amber-500 mx-auto mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Editorial Excellence Award</h3>
+                    <p class="text-zinc-500 text-sm">International Photography Awards 2023</p>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 text-center">
+                    <i data-lucide="star" class="w-12 h-12 text-amber-500 mx-auto mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Top 10 Studios in NYC</h3>
+                    <p class="text-zinc-500 text-sm">The Knot Best of Weddings 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="px-6 bg-zinc-900 border-t border-zinc-800 py-32">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8">
+                Ready To Create <br><span class="text-amber-500 italic">Your Legacy?</span>
+            </h2>
+            <p class="text-xl text-zinc-400 leading-relaxed mb-12 max-w-2xl mx-auto">
+                Let's transform your moments into timeless art. Book a consultation and discover the Lumina difference.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="booking.html"
+                    class="bg-amber-500 text-zinc-950 px-10 py-5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
+                    Book a Session
+                </a>
+                <a href="contact.html"
+                    class="bg-zinc-950 border border-zinc-800 text-white px-10 py-5 rounded-full text-sm font-black uppercase tracking-widest hover:bg-zinc-800 transition-all">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <!-- IMPROVISED FOOTER SECTION -->
+    <footer class="bg-zinc-950 border-t border-zinc-900 pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand Column -->
+                <div class="col-span-1 lg:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-3 mb-4 group">
+                        <div
+                            class="bg-amber-500/10 p-2 rounded-xl border border-amber-500/20 group-hover:bg-amber-500 transition-all duration-500">
+                            <i data-lucide="camera"
+                                class="w-5 h-5 text-amber-500 group-hover:text-black transition-colors"></i>
+                        </div>
+                        <span class="brand-logo text-lg tracking-tighter">Lumina Studio</span>
+                    </a>
+                    <p class="text-zinc-500 text-xs leading-relaxed mb-4 max-w-xs">
+                        An international editorial house dedicated to the preservation of human legacy and the art of
+                        cinematic storytelling.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-amber-500 hover:border-amber-500/50 transition-all">
+                            <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-amber-500 hover:border-amber-500/50 transition-all">
+                            <i data-lucide="twitter" class="w-3.5 h-3.5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-amber-500 hover:border-amber-500/50 transition-all">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-6">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Home</a>
+                        </li>
+                        <li><a href="about.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Services</a>
+                        </li>
+                        <li><a href="featured-work.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Portfolio</a>
+                        </li>
+                        <li><a href="contact.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-6">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="service-wedding.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Weddings</a>
+                        </li>
+                        <li><a href="service-commercial.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Commercial</a>
+                        </li>
+                        <li><a href="services.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Portraits</a>
+                        </li>
+                        <li><a href="service-travel.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Travel</a>
+                        </li>
+                        <li><a href="pricing.html"
+                                class="text-zinc-500 hover:text-amber-500 text-xs font-medium transition-colors">Pricing</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white text-[10px] font-black uppercase tracking-[0.3em] mb-6">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <div class="mt-0.5 p-1 bg-zinc-900 rounded-lg border border-zinc-800">
+                                <i data-lucide="map-pin" class="w-3 h-3 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-bold">New York HQ</p>
+                                <p class="text-zinc-500 text-[10px] mt-0.5">123 Design St, NYC</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <div class="mt-0.5 p-1 bg-zinc-900 rounded-lg border border-zinc-800">
+                                <i data-lucide="mail" class="w-3 h-3 text-amber-500"></i>
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-bold">Email</p>
+                                <p class="text-zinc-500 text-[10px] mt-0.5">hello@lumina.studio</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="pt-6 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-zinc-600 text-[9px] font-bold uppercase tracking-[0.2em]">
+                    &copy; 2025 Lumina Studio. All Rights Reserved.
+                </p>
+
+                <div class="flex items-center gap-4">
+                    <a href="#"
+                        class="text-zinc-600 hover:text-white text-[9px] font-bold uppercase tracking-widest transition-colors">Privacy</a>
+                    <a href="#"
+                        class="text-zinc-600 hover:text-white text-[9px] font-bold uppercase tracking-widest transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

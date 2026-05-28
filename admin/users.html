@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management | Lumina Studio</title>
+    <script src="https://unpkg.com/lucide@0.470.0"></script>
+    <link rel="icon" type="image/png" href="../assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand-area">
+                    <div class="brand-icon">
+                        <i data-lucide="camera" class="w-6 h-6"></i>
+                    </div>
+                    <span class="brand-name">LUMINA STUDIO</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Core</div>
+                <a href="dashboard.html" class="nav-link">
+                    <i data-lucide="layout-grid"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="users.html" class="nav-link active">
+                    <i data-lucide="users"></i>
+                    <span>User Management</span>
+                </a>
+
+                <div class="nav-section-title">Content</div>
+                <a href="blogs.html" class="nav-link">
+                    <i data-lucide="file-text"></i>
+                    <span>Blog Posts</span>
+                </a>
+                <a href="gallery.html" class="nav-link">
+                    <i data-lucide="image"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="check-square"></i>
+                    <span>Post Approval</span>
+                </a>
+
+                <div class="nav-section-title">Operations</div>
+                <a href="bookings.html" class="nav-link">
+                    <i data-lucide="calendar"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="messages.html" class="nav-link">
+                    <i data-lucide="mail"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="bar-chart-3"></i>
+                    <span>Analytics</span>
+                </a>
+
+                <div class="nav-section-title">System</div>
+                <a href="#" class="nav-link">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer" style="padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                <button onclick="logout()" class="nav-link"
+                    style="width: 100%; border: none; background: transparent; cursor: pointer;">
+                    <i data-lucide="log-out"></i>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button onclick="toggleSidebar()" class="icon-btn lg:hidden">
+                            <i data-lucide="menu"></i>
+                        </button>
+                        <div>
+                            <h1>User Management</h1>
+                            <p>Manage studio members and permissions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                        <i data-lucide="user-plus"></i> Add New User
+                    </button>
+                </div>
+            </header>
+
+            <div class="section-card">
+                <div class="card-header">
+                    <h2>Registered Users</h2>
+                    <div class="search-bar" style="position: relative;">
+                        <i data-lucide="search"
+                            style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); width: 14px;"></i>
+                        <input type="text" placeholder="Filter users..."
+                            style="padding: 0.5rem 1rem 0.5rem 2.25rem; border-radius: 100px; border: 1px solid var(--border); width: 200px; font-size: 0.8rem;">
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table class="modern-table">
+                        <thead>
+                            <th class="p-6 text-[10px] font-black uppercase tracking-widest text-zinc-400">User ID
+                            </th>
+                            <th class="p-6 text-[10px] font-black uppercase tracking-widest text-zinc-400">Name</th>
+                            <th class="p-6 text-[10px] font-black uppercase tracking-widest text-zinc-400">Email
+                            </th>
+                            <th class="p-6 text-[10px] font-black uppercase tracking-widest text-zinc-400">Role</th>
+                            <th class="p-6 text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                                Registration</th>
+                            <th class="p-6 text-right text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                                Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users_table">
+                            <!-- Loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/admin-users.js"></script>
+    <script>
+        // Lucide icons initialization
+        lucide.createIcons();
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar && overlay) {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+            }
+        }
+
+        function handleNavClick() {
+            if (window.innerWidth < 1024) {
+                toggleSidebar();
+            }
+        }
+    </script>
+</body>
+
+</html>

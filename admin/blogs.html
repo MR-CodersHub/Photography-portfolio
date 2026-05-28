@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management | Lumina Studio</title>
+    <script src="https://unpkg.com/lucide@0.470.0"></script>
+    <link rel="icon" type="image/png" href="../assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand-area">
+                    <div class="brand-icon">
+                        <i data-lucide="camera" class="w-6 h-6"></i>
+                    </div>
+                    <span class="brand-name">LUMINA STUDIO</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Core</div>
+                <a href="dashboard.html" class="nav-link">
+                    <i data-lucide="layout-grid"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="users.html" class="nav-link">
+                    <i data-lucide="users"></i>
+                    <span>User Management</span>
+                </a>
+
+                <div class="nav-section-title">Content</div>
+                <a href="blogs.html" class="nav-link active">
+                    <i data-lucide="file-text"></i>
+                    <span>Blog Posts</span>
+                </a>
+                <a href="gallery.html" class="nav-link">
+                    <i data-lucide="image"></i>
+                    <span>Gallery</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="check-square"></i>
+                    <span>Post Approval</span>
+                </a>
+
+                <div class="nav-section-title">Operations</div>
+                <a href="bookings.html" class="nav-link">
+                    <i data-lucide="calendar"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="messages.html" class="nav-link">
+                    <i data-lucide="mail"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-link">
+                    <i data-lucide="bar-chart-3"></i>
+                    <span>Analytics</span>
+                </a>
+
+                <div class="nav-section-title">System</div>
+                <a href="#" class="nav-link">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer" style="padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                <button onclick="logout()" class="nav-link"
+                    style="width: 100%; border: none; background: transparent; cursor: pointer;">
+                    <i data-lucide="log-out"></i>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button onclick="toggleSidebar()" class="icon-btn lg:hidden">
+                            <i data-lucide="menu"></i>
+                        </button>
+                        <div>
+                            <h1>Blog Management</h1>
+                            <p>Create and edit studio articles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="showCreateForm()"
+                        style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                        <i data-lucide="plus"></i> New Article
+                    </button>
+                </div>
+            </header>
+
+            <!-- Blog Form Card -->
+            <div id="blog-form-card" class="section-card" style="display: none; margin-bottom: 2rem;">
+                <div class="card-header">
+                    <h2 id="form-title">Create New Article</h2>
+                    <button onclick="hideForm()" class="icon-btn" style="border: none; background: none;"><i
+                            data-lucide="x"></i></button>
+                </div>
+                <form id="blogForm" style="padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <input type="hidden" name="id" id="blogId">
+                    <div style="grid-column: span 2;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Title</label>
+                        <input type="text" name="title" id="blogTitle" required
+                            style="width: 100%; padding: 0.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Category</label>
+                        <select id="blogCategory"
+                            style="width: 100%; padding: 0.75rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+                            <option>Portrait</option>
+                            <option>Wedding</option>
+                            <option>Nature</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Featured Image</label>
+                        <input type="file" id="blogImage" style="width: 100%;">
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Content</label>
+                        <textarea id="blogContent"
+                            style="width: 100%; height: 200px; padding: 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border);"></textarea>
+                    </div>
+                    <div style="grid-column: span 2; display: flex; justify-content: flex-end; gap: 1rem;">
+                        <button type="button" onclick="hideForm()" class="btn btn-ghost">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section-card">
+                <div class="card-header">
+                    <h2>Published Posts</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="blogs_table">
+                            <!-- Dynamic content -->
+                            <tr>
+                                <td colspan="5" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                                    <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto mb-2"></i>
+                                    <p>Loading articles...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/admin-blogs.js"></script>
+    <script>
+        lucide.createIcons();
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('sidebar-overlay').classList.toggle('active');
+        }
+        function logout() {
+            localStorage.clear();
+            window.location.replace('../signin.html');
+        }
+        function showCreateForm() {
+            document.getElementById('blog-form-card').style.display = 'block';
+        }
+        function hideForm() {
+            document.getElementById('blog-form-card').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

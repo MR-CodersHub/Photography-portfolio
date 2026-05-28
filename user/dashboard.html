@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | Lumina Studio</title>
+    <script src="https://unpkg.com/lucide@0.470.0"></script>
+    <link rel="icon" type="image/png" href="../assets/img/favicons/favicon.png">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="brand-area">
+                    <div class="brand-icon">
+                        <i data-lucide="camera" class="w-6 h-6"></i>
+                    </div>
+                    <span class="brand-name">LUMINA STUDIO</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Personal</div>
+                <a href="#" class="nav-link active" data-view="overview">
+                    <i data-lucide="layout-grid"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-link" data-view="profile">
+                    <i data-lucide="user"></i>
+                    <span>My Profile</span>
+                </a>
+                <a href="#" class="nav-link" data-view="activity">
+                    <i data-lucide="activity"></i>
+                    <span>My Activity</span>
+                </a>
+
+                <div class="nav-section-title">Services</div>
+                <a href="../booking.html" class="nav-link">
+                    <i data-lucide="calendar-plus"></i>
+                    <span>New Booking</span>
+                </a>
+                <a href="#" class="nav-link" data-view="bookings">
+                    <i data-lucide="history"></i>
+                    <span>My Bookings</span>
+                </a>
+
+                <div class="nav-section-title">Support</div>
+                <a href="#" class="nav-link" data-view="notifications">
+                    <i data-lucide="bell"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="nav-link" data-view="settings">
+                    <i data-lucide="settings"></i>
+                    <span>Account Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer" style="padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                <button onclick="logout()" class="nav-link"
+                    style="width: 100%; border: none; background: transparent; cursor: pointer;">
+                    <i data-lucide="log-out"></i>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Sidebar Overlay -->
+        <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button onclick="toggleSidebar()" class="icon-btn lg:hidden">
+                            <i data-lucide="menu"></i>
+                        </button>
+                        <div>
+                            <h1 id="dashboard-title">Welcome back!</h1>
+                            <p id="dashboard-subtitle">Here's what's happening with your studio sessions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="icon-btn" id="headerNotificationsBtn" title="View Notifications">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="user-pill" id="headerProfileBtn" title="View Profile">
+                        <div class="user-avatar text-black">SU</div>
+                        <div class="user-info hidden sm:flex">
+                            <span class="user-name" id="user-display-name">Sakthi</span>
+                            <span class="user-role">Member</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Overview View -->
+            <div class="dashboard-view" id="view-overview">
+                <!-- Statistics Section -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--primary);">
+                            <i data-lucide="calendar-check"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total Bookings</h3>
+                            <div class="stat-value" id="my_bookings_count">0</div>
+                            <div class="stat-trend" style="color: var(--text-muted)">
+                                <span>Lifetime sessions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: var(--secondary);">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Active Session</h3>
+                            <div class="stat-value" id="pending_count">0</div>
+                            <div class="stat-trend trend-up">
+                                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                                <span>Pending confirmation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: rgba(99, 102, 241, 0.1); color: var(--accent);">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Member Status</h3>
+                            <div class="stat-value">Premium</div>
+                            <div class="stat-trend trend-up">
+                                <i data-lucide="star" class="w-4 h-4"></i>
+                                <span>Verified Member</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Recent Activity -->
+                    <div class="section-card col-8">
+                        <div class="card-header">
+                            <h2>Recent Activity</h2>
+                            <a href="../booking.html" class="btn btn-primary"
+                                style="padding: 0.5rem 1rem; font-size: 0.8rem;">New Session</a>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="modern-table">
+                                <thead>
+                                    <tr>
+                                        <th>Service Type</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Estimate</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookings_table">
+                                    <tr>
+                                        <td colspan="4"
+                                            style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                                            <i data-lucide="loader-2" class="w-8 h-8 animate-spin mx-auto mb-2"></i>
+                                            <p>Loading your activity...</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Notifications / Tips -->
+                    <div class="section-card col-4">
+                        <div class="card-header">
+                            <h2>Notifications</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div
+                                style="padding: 1rem; border-radius: var(--radius-lg); background: #fafafa; border-left: 4px solid var(--primary);">
+                                <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">New Discount
+                                    Available!</div>
+                                <div style="font-size: 0.8rem; color: var(--text-sec);">Get 20% off on your next portrait
+                                    session.</div>
+                            </div>
+                            <div
+                                style="padding: 1rem; border-radius: var(--radius-lg); background: #fafafa; border-left: 4px solid var(--secondary);">
+                                <div style="font-weight: 700; font-size: 0.85rem; margin-bottom: 0.25rem;">Booking Confirmed
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-sec);">Your wedding shoot for Dec 24 is
+                                    confirmed.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile View -->
+            <div class="dashboard-view hidden" id="view-profile">
+                <div class="section-card">
+                    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 600px;">
+                        <div style="display: flex; align-items: center; gap: 1.5rem;">
+                            <div class="user-avatar text-black" style="width: 80px; height: 80px; font-size: 2rem;">SU</div>
+                            <div>
+                                <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem;" id="profile-display-name">Sakthi</h2>
+                                <p style="font-size: 0.875rem; color: var(--text-sec);">Premium Member since 2024</p>
+                            </div>
+                        </div>
+                        <form id="profileForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">First Name</label>
+                                    <input type="text" id="profileFirstName" class="input-field" value="Sakthi" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">Last Name</label>
+                                    <input type="text" id="profileLastName" class="input-field" value="User" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;">
+                                </div>
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">Email Address</label>
+                                <input type="email" id="profileEmail" class="input-field" value="sakthi@example.com" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;" readonly>
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">Phone Number</label>
+                                <input type="text" id="profilePhone" class="input-field" value="+1 (555) 019-2834" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">Billing Address</label>
+                                <textarea id="profileAddress" class="input-field" rows="3" style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;">123 Fifth Avenue, New York, NY 10003</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity View -->
+            <div class="dashboard-view hidden" id="view-activity">
+                <div class="section-card">
+                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem;">Activity History</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; position: relative; padding-left: 1.5rem; border-left: 2px solid var(--border-light);">
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -1.9rem; top: 0.25rem; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 2px solid #fff;"></div>
+                            <div style="font-weight: 700; font-size: 0.9375rem;">Profile Updated</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 0.25rem;">You updated your phone number and address.</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">May 28, 2026, 11:34 AM</div>
+                        </div>
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -1.9rem; top: 0.25rem; width: 12px; height: 12px; border-radius: 50%; background: var(--secondary); border: 2px solid #fff;"></div>
+                            <div style="font-weight: 700; font-size: 0.9375rem;">Invoice Downloaded</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 0.25rem;">Downloaded invoice for Editorial Portrait Session (BKG-2026-001).</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">May 15, 2026, 3:10 PM</div>
+                        </div>
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -1.9rem; top: 0.25rem; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 2px solid #fff;"></div>
+                            <div style="font-weight: 700; font-size: 0.9375rem;">New Booking Request</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 0.25rem;">Submitted booking request for Commercial Product Shoot.</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">May 05, 2026, 10:15 AM</div>
+                        </div>
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -1.9rem; top: 0.25rem; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid #fff;"></div>
+                            <div style="font-weight: 700; font-size: 0.9375rem;">Booking Confirmed</div>
+                            <div style="font-size: 0.8rem; color: var(--text-sec); margin-top: 0.25rem;">Booking request for Editorial Portrait Session was confirmed.</div>
+                            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Apr 12, 2026, 4:45 PM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bookings View -->
+            <div class="dashboard-view hidden" id="view-bookings">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h2>All Scheduled Bookings</h2>
+                        <a href="../booking.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">New Session</a>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="modern-table">
+                            <thead>
+                                <tr>
+                                    <th>Service Type</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Estimate</th>
+                                    <th style="text-align: right;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="full_bookings_table">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications View -->
+            <div class="dashboard-view hidden" id="view-notifications">
+                <div class="section-card">
+                    <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 2rem;">All Notifications</h2>
+                    <div id="notifications-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings View -->
+            <div class="dashboard-view hidden" id="view-settings">
+                <div class="section-card">
+                    <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 600px;">
+                        <div>
+                            <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Security</h2>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 1.5rem;">Change your login password and manage access.</p>
+                            <form id="passwordForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <div>
+                                    <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">Current Password</label>
+                                    <input type="password" class="input-field" required style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;">
+                                </div>
+                                <div>
+                                    <label style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-sec); margin-bottom: 0.5rem;">New Password</label>
+                                    <input type="password" class="input-field" required style="width: 100%; padding: 0.75rem 1rem; border-radius: var(--radius-lg); border: 1px solid var(--border-light); background: #fff; font-size: 0.9375rem;">
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Update Password</button>
+                            </form>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid var(--border-light);">
+                        <div>
+                            <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">Preferences</h2>
+                            <p style="font-size: 0.85rem; color: var(--text-sec); margin-bottom: 1.5rem;">Configure your notifications and updates.</p>
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+                                    <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--primary);">
+                                    <span style="font-size: 0.9375rem;">Email notifications for booking confirmations</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.75rem; cursor: pointer;">
+                                    <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--primary);">
+                                    <span style="font-size: 0.9375rem;">Newsletter and seasonal discount notifications</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="../js/user-dashboard.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.replace('../signin.html');
+        }
+    </script>
+</body>
+
+</html>
